@@ -1,0 +1,53 @@
+{
+    "news": [
+      {
+        "id": "news-1",
+        "title": "News 1",
+        "imageUrl": "https://via.placeholder.com/500"
+      },
+      {
+        "id": "news-2",
+        "title": "News 2",
+        "imageUrl": "https://via.placeholder.com/500"
+      },
+      {
+        "id": "news-3",
+        "title": "News 3",
+        "imageUrl": "https://via.placeholder.com/500"
+      }
+    ],
+    "highlights": [
+      {
+        "id": "trich-dan-va-viet-lai-lich-su-the-gioi",
+        "title": "Trích dẫn & viết lại lịch sử thế giới",
+        "imageUrl": "https://via.placeholder.com/500"
+      },
+      {
+        "id": "highlight-2",
+        "title": "Highlight 2",
+        "imageUrl": "https://via.placeholder.com/500"
+      },
+      {
+        "id": "highlight-3",
+        "title": "Highlight 3",
+        "imageUrl": "https://via.placeholder.com/500"
+      }
+    ],
+    "initiatives": [
+      {
+        "id": "initiative-1",
+        "title": "Initiative 1",
+        "imageUrl": "https://via.placeholder.com/500"
+      },
+      {
+        "id": "initiative-2",
+        "title": "Initiative 2",
+        "imageUrl": "https://via.placeholder.com/500"
+      },
+      {
+        "id": "initiative-3",
+        "title": "Initiative 3",
+        "imageUrl": "https://via.placeholder.com/500"
+      }
+    ]
+  }

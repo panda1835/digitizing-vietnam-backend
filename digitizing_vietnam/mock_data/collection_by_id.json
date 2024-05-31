@@ -1,0 +1,47 @@
+{
+    "vietnam-studies-journal" : {
+        "title": "Vietnamese Studies Journal Collections",
+        "description":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.",
+        "information":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.",
+        "imageUrl": "https://via.placeholder.com/500",
+        "items": [
+          {
+            "id": "volume-1",
+            "title": "Volume 1",
+            "imageUrl": "https://via.placeholder.com/500"
+          },
+          {
+            "id": "volume-2",
+            "title": "Volume 2",
+            "imageUrl": "https://via.placeholder.com/500"
+          },
+          {
+            "id": "volume-3",
+            "title": "Volume 3",
+            "imageUrl": "https://via.placeholder.com/500"
+          },
+          {
+            "id": "volume-4",
+            "title": "Volume 4",
+            "imageUrl": "https://via.placeholder.com/500"
+          },
+          {
+            "id": "volume-5",
+            "title": "Volume 5",
+            "imageUrl": "https://via.placeholder.com/500"
+          },
+          {
+            "id": "volume-6",
+            "title": "Volume 6",
+            "imageUrl": "https://via.placeholder.com/500"
+          },
+          {
+            "id": "volume-7",
+            "title": "Volume 7",
+            "imageUrl": "https://via.placeholder.com/500"
+          }
+        ]
+      }
+}
