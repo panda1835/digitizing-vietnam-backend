@@ -27,10 +27,7 @@ DEBUG = True
 CORS_ALLOW_ALL_ORIGINS = True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['digitizing-vietnam.herokuapp.com']
-
-# Disable collectstatic for this application
-DISABLE_COLLECTSTATIC=1
+ALLOWED_HOSTS = ['https://digitizing-vietnam-85e1a0248f95.herokuapp.com']
 
 # Application definition
 
