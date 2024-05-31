@@ -26,8 +26,11 @@ SECRET_KEY = 'django-insecure-+5)$9kv3z82r)qq@8izl&=j*bf1dgd$ylf)yk%31(aws#11se5
 DEBUG = True
 CORS_ALLOW_ALL_ORIGINS = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['digitizing-vietnam.herokuapp.com']
 
+# Disable collectstatic for this application
+DISABLE_COLLECTSTATIC=1
 
 # Application definition
 
