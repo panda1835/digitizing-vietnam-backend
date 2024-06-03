@@ -10,6 +10,7 @@ class Collection(models.Model):
     image_url = models.CharField(max_length=255, blank=False)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
+    presentation_order = models.IntegerField(default=1000)
 
     def __str__(self):
         return f"{self.title}"
@@ -30,6 +31,7 @@ class Document(models.Model):
     manifest = models.TextField(blank=False, default="{}")
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
+    presentation_order = models.IntegerField(default=1000)
 
     def __str__(self):
         return f"({self.collection_id.title}) {self.title}"
@@ -70,7 +72,7 @@ class Blog(models.Model):
 
 
 class OCR(models.Model):
-    # collection_id = models.ForeignKey(Collection, on_delete=models.CASCADE, default=None)
+    collection_id = models.ForeignKey(Collection, on_delete=models.CASCADE, default=None)
     document_id = models.ForeignKey(Document, on_delete=models.CASCADE)
     canvas_id = models.CharField(max_length=255)
     text = models.TextField(blank=True)
@@ -79,6 +81,31 @@ class OCR(models.Model):
 
     def __str__(self):
         return f"OCR for {self.document_id.title} (canvas {self.canvas_id})"
+
+    def formatted_date_created(self):
+        return self.date_created.strftime('%B %d, %Y')
+
+    def formatted_date_updated(self):
+        return self.date_updated.strftime('%B %d, %Y')
+
+class OnlineResourceCategory(models.Model):
+    category_name = models.CharField(max_length=255, primary_key=True, blank=False)
+    description = models.TextField(blank=False)
+    presentation_order = models.IntegerField(default=1000)
+
+    def __str__(self):
+        return self.category_name
+
+class OnlineResource(models.Model):
+    category = models.ForeignKey(OnlineResourceCategory, on_delete=models.CASCADE)
+    title = models.CharField(max_length=255, primary_key=True)
+    description = models.TextField(blank=False)
+    url = models.CharField(max_length=255, blank=False)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.title} - {self.url}"
 
     def formatted_date_created(self):
         return self.date_created.strftime('%B %d, %Y')
