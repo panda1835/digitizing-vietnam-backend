@@ -2,7 +2,7 @@ import json
 import os
 import glob
 
-from .models import Document, Collection, Blog, OCR
+from .models import *
 
 def get_blogs_by_type(blog_type):
     if (blog_type not in ["news", "highlights", "initiatives"]):
@@ -46,11 +46,11 @@ def get_blog_post_by_related_collection(collection_id):
         })
     return {"data": blogs_data}
 
-def get_collection_by_id(collection_id):
+def get_documents_of_collection(collection_id):
     try:
         collection = Collection.objects.get(collection_id=collection_id)
         # Get all documents in the collection
-        documents = Document.objects.filter(collection_id=collection_id)
+        documents = Document.objects.filter(collection_id=collection_id).order_by('presentation_order')
 
         return {"data": {
             "title": collection.title,
@@ -70,8 +70,8 @@ def get_collection_by_id(collection_id):
 
     return {"error": "Invalid collection ID."}
 
-def get_collection():
-    all_collections = Collection.objects.all()
+def get_all_collections():
+    all_collections = Collection.objects.all().order_by('presentation_order')
     collections_data = []
     for collection in all_collections:
         collection_dict = dict(collection.__dict__)
@@ -85,10 +85,10 @@ def get_ocr(collection_id, document_id, canvas_id):
         return {"error": "Invalid collection ID."}
     if (Document.objects.filter(document_id=document_id).count() == 0):
         return {"error": "Invalid document ID."}
-    if (OCR.objects.filter(document_id=document_id, canvas_id=canvas_id).count() == 0):
+    if (OCR.objects.filter(collection_id=collection_id, document_id=document_id, canvas_id=canvas_id).count() == 0):
         return {"text": "No OCR text for this page."}
     
-    data = OCR.objects.get(document_id=document_id, canvas_id=canvas_id)
+    data = OCR.objects.get(collection_id=collection_id, document_id=document_id, canvas_id=canvas_id)
     return {"text": data.text}
     
 
@@ -98,3 +98,26 @@ def get_manifest(collection_id, document_id):
         return eval(data.manifest)
     except Exception as e:
         return {"error": "Invalid document ID or canvas ID."}
+
+def get_online_resources():
+    resource_categories = OnlineResourceCategory.objects.all().order_by('presentation_order')
+    online_resources = OnlineResource.objects.all()
+    
+    resources_data = []
+
+    for category in resource_categories:
+        resources_data.append({
+            "category_name": category.category_name,
+            "description": category.description,
+            "resources": [
+                {
+                    "title": resource.title,
+                    "description": resource.description,
+                    "url": resource.url,
+                    "date_created": resource.formatted_date_created(),
+                    "date_updated": resource.formatted_date_updated(),
+                } for resource in online_resources if resource.category == category
+            ]
+        })
+    
+    return {"data": resources_data}

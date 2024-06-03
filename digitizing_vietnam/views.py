@@ -14,12 +14,12 @@ def manifest(request, collection_id, document_id):
     data = get_data.get_manifest(collection_id, document_id)
     return JsonResponse(data)
 
-def collections(request):
-    data = get_data.get_collection()
+def all_collections(request):
+    data = get_data.get_all_collections()
     return JsonResponse(data)
 
-def collection_by_id(request, collection_id):
-    data = get_data.get_collection_by_id(collection_id)
+def documents_of_collection(request, collection_id):
+    data = get_data.get_documents_of_collection(collection_id)
     return JsonResponse(data)
 
 def blog_post(request):
@@ -44,4 +44,8 @@ def blogs_by_type(request, blog_type):
 def ocr(request, collection_id, document_id):
     canvas_id = request.GET.get('canvasId', "")
     data = get_data.get_ocr(collection_id, document_id, canvas_id)
+    return JsonResponse(data)
+
+def online_resources(request):
+    data = get_data.get_online_resources()
     return JsonResponse(data)
