@@ -109,6 +109,7 @@ def get_online_resources():
         resources_data.append({
             "category_name": category.category_name,
             "description": category.description,
+            "image_url": category.image_url,
             "resources": [
                 {
                     "title": resource.title,
