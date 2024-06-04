@@ -91,6 +91,7 @@ class OCR(models.Model):
 class OnlineResourceCategory(models.Model):
     category_name = models.CharField(max_length=255, primary_key=True, blank=False)
     description = models.TextField(blank=False)
+    image_url = models.TextField(blank=False, default="https://via.placeholder.com/500")
     presentation_order = models.IntegerField(default=1000)
 
     def __str__(self):
