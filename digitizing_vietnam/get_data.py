@@ -115,8 +115,6 @@ def get_online_resources():
                     "title": resource.title,
                     "description": resource.description,
                     "url": resource.url,
-                    "date_created": resource.formatted_date_created(),
-                    "date_updated": resource.formatted_date_updated(),
                 } for resource in online_resources if resource.category == category
             ]
         })
