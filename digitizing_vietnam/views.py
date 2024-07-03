@@ -15,11 +15,15 @@ def manifest(request, collection_id, document_id):
     return JsonResponse(data)
 
 def all_collections(request):
-    data = get_data.get_all_collections()
+    query_params = request.GET
+    lang = query_params.get('lang', "en")
+    data = get_data.get_all_collections(lang)
     return JsonResponse(data)
 
 def documents_of_collection(request, collection_id):
-    data = get_data.get_documents_of_collection(collection_id)
+    query_params = request.GET
+    lang = query_params.get('lang', "en")
+    data = get_data.get_documents_of_collection(collection_id, lang)
     return JsonResponse(data)
 
 def blog_post(request):
@@ -47,5 +51,7 @@ def ocr(request, collection_id, document_id):
     return JsonResponse(data)
 
 def online_resources(request):
-    data = get_data.get_online_resources()
+    query_params = request.GET
+    lang = query_params.get('lang', "en")
+    data = get_data.get_online_resources(lang)
     return JsonResponse(data)

@@ -46,21 +46,20 @@ def get_blog_post_by_related_collection(collection_id):
         })
     return {"data": blogs_data}
 
-def get_documents_of_collection(collection_id):
+def get_documents_of_collection(collection_id, lang):
     try:
         collection = Collection.objects.get(collection_id=collection_id)
         # Get all documents in the collection
         documents = Document.objects.filter(collection_id=collection_id).order_by('presentation_order')
 
         return {"data": {
-            "title": collection.title,
-            "description": collection.description,
-            "information": collection.information,
+            "title": collection.title_en if lang == "en" else collection.title_vi,
+            "description": collection.description_en if lang == "en" else collection.description_vi,
             "image_url": collection.image_url,
             "documents": [
                 {
                     "document_id": document.document_id,
-                    "title": document.title,
+                    "title": document.title_en if lang == "en" else document.title_vi,
                     "image_url": document.image_url,
                 } for document in documents
             ]
@@ -70,13 +69,16 @@ def get_documents_of_collection(collection_id):
 
     return {"error": "Invalid collection ID."}
 
-def get_all_collections():
+def get_all_collections(lang):
     all_collections = Collection.objects.all().order_by('presentation_order')
     collections_data = []
     for collection in all_collections:
-        collection_dict = dict(collection.__dict__)
-        del collection_dict['_state']
-        collections_data.append(collection_dict)
+        collections_data.append({
+            "collection_id": collection.collection_id,
+            "title": collection.title_en if lang == "en" else collection.title_vi,
+            "description": collection.description_en if lang == "en" else collection.description_vi,
+            "image_url": collection.image_url,
+        })
     
     return {"data": collections_data}
 
@@ -99,7 +101,7 @@ def get_manifest(collection_id, document_id):
     except Exception as e:
         return {"error": "Invalid document ID or canvas ID."}
 
-def get_online_resources():
+def get_online_resources(lang):
     resource_categories = OnlineResourceCategory.objects.all().order_by('presentation_order')
     online_resources = OnlineResource.objects.all()
     
@@ -107,15 +109,15 @@ def get_online_resources():
 
     for category in resource_categories:
         resources_data.append({
-            "category_name": category.category_name,
-            "description": category.description,
+            "category_name": category.category_name_en if lang == "en" else category.category_name_vi,
+            "description": category.description_en if lang == "en" else category.description_vi,
             "image_url": category.image_url,
             "resources": [
                 {
                     "title": resource.title,
-                    "description": resource.description,
+                    "description": resource.description_en if lang == "en" else resource.description_vi,
                     "url": resource.url,
-                } for resource in online_resources if resource.category == category
+                } for resource in online_resources if resource.category_id == category
             ]
         })
     
