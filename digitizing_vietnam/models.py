@@ -28,8 +28,6 @@ class Document(models.Model):
     collection_id = models.ForeignKey(Collection, on_delete=models.CASCADE)
     title_en = models.CharField(max_length=255, blank=False)
     title_vi = models.CharField(max_length=255, blank=True)
-    description_en = models.TextField(blank=True)
-    description_vi = models.TextField(blank=True)
     image_url = models.CharField(max_length=255, blank=False)
     manifest = models.TextField(blank=False, default="{}")
     date_created = models.DateTimeField(auto_now_add=True)

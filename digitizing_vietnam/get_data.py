@@ -50,7 +50,7 @@ def get_documents_of_collection(collection_id, lang):
     try:
         collection = Collection.objects.get(collection_id=collection_id)
         # Get all documents in the collection
-        documents = Document.objects.filter(collection_id=collection_id).order_by('presentation_order')
+        documents = Document.objects.filter(collection_id=collection_id).order_by('document_id')
 
         return {"data": {
             "title": collection.title_en if lang == "en" else collection.title_vi,
